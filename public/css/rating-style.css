@@ -1,0 +1,74 @@
+
+/* Department Header */
+.header {
+    background-color: #1a9cd9; /* Change per department if needed */
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 15px 200px;
+    width: fit-content;
+    border-radius: 0px;
+    text-transform: uppercase;
+    position: absolute; /* Positions header absolutely */
+    top: 20px; /* Distance from top */
+    left:-180px; /* Distance from left */
+    z-index: 10; /* Ensures it stays on top */
+}
+
+/* Window Number */
+.windowNumber1 {
+    position: absolute;
+    top: 120px; /* Adjust spacing below the header */
+    left: 20px; /* Align with header */
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    left: 20;
+}
+
+
+/* Rating Container */
+.ratingContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Individual Rating Button */
+.rating {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    padding: 0;
+}
+
+.rating img {
+    width: 200px;
+    height: auto;
+}
+
+/* Rating Labels */
+.rating span {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Colors for Labels */
+.excellent { color: green; }
+.good { color: #7ac142; }
+.medium { color: orange; }
+.poor { color: red; }
+.very-bad { color: darkred; }
+
+/* Hover Effect */
+.rating:hover {
+    transform: scale(1.1);
+}
+
+
+
