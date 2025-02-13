@@ -1,0 +1,25 @@
+/* Subtitle */
+.subtitle {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Restart Button */
+.restartButton {
+    background-color: #1a9cd9;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+}
+
+.restartButton:hover {
+    background-color: #127cb5;
+}

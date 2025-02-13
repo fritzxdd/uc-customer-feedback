@@ -1,0 +1,35 @@
+/* === SPECIFIC STYLES FOR COMMENT OPTION PAGE === */
+
+/* Button Group */
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Yes & No Buttons */
+.yesButton, .noButton {
+    background-color: #1a9cd9;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+}
+
+.yesButton:hover {
+    background-color: #127cb5;
+}
+
+.noButton {
+    background-color: #d9534f;
+}
+
+.noButton:hover {
+    background-color: #c9302c;
+}
