@@ -11,7 +11,7 @@
 <body>
 
     <!-- Back Button in Upper Right -->
-    <button class="backButton" onclick="window.history.back();">← Back</button>
+    <button class="backButton" onclick="window.history.back();">Back</button>
 
     <div class="container">
         <!-- Question Title -->
