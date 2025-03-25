@@ -15,7 +15,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12 text-center mb-4">
-                <h2>Welcome to Admin Analytics</h2>
+                <h2>Feedback Analytics</h2>
             </div>
         </div>
 
@@ -33,15 +33,13 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped table-bordered">
-                    <thead>
+                    <tbody>
+                        @foreach ($analytics as $department)
                         <tr class="bg-primary text-white">
                             <th>Department</th>
                             <th>Feedback Count</th>
                             <th>Average Rating</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($analytics as $department)
                         <tr class="department-row" data-dept="{{ $department->id }}">
                             <td><strong>{{ $department->department }}</strong></td>
                             <td>{{ $department->feedback_count }}</td>
@@ -88,24 +86,38 @@
                                     <table class="table table-striped table-bordered">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>Student Comment</th>
+                                                <th>Window</th>
+                                                <th>Student Comments</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($windows as $window)
+                                            @if ($window->department == $department->department) <!-- Filter by department -->
+                                            <tr class="window-toggle" data-window="{{ $window->window }}" data-dept="{{ $department->id }}" style="cursor: pointer; background-color: #f8f9fa;">
+                                                <td><strong>Window {{ $window->window }}</strong></td>
+                                                <td></td> <!-- Empty column for structure -->
+                                            </tr>
+
+                                            <!-- Comments Row (Initially Hidden) -->
                                             @foreach ($comments as $comment)
-                                            @if ($comment->department == $department->department)
-                                            <tr class="comment-row window-{{ $comment->window }}">
+                                            @if ($comment->window == $window->window && $comment->department == $department->department)
+                                            <tr class="comment-row window-{{ $window->window }} dept-{{ $department->id }}" style="display: none;">
+                                                <td></td>
                                                 <td>{{ $comment->comment }}</td>
                                             </tr>
+                                            @endif
+                                            @endforeach
                                             @endif
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
+
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
+
                 </table>
             </div>
         </div>
@@ -115,6 +127,20 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".window-toggle").on("click", function () {
+            var windowNumber = $(this).data("window"); // Get the clicked window number
+            var departmentId = $(this).data("dept"); // Get the department ID
+            var comments = $(".window-" + windowNumber + ".dept-" + departmentId); // Select comments
+
+            // Toggle comments for the clicked window
+            comments.toggle();
+        });
+    });
+</script>
+
 
     <script>
         console.log("{{ $comments }}");
