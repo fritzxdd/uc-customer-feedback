@@ -27,5 +27,6 @@
     <!-- Bottom Right - UC Logo -->
     <img src="{{ asset('images/uc-logo.png') }}" alt="University of Cebu" class="ucLogo">
 
+    @yield('scripts')
 </body>
 </html>
